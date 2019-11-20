@@ -1,0 +1,13 @@
+export const USERNAME = "USERNAME";
+export const TOKEN = "TOKEN";
+export const GOODS_DETAILS = "GOODS_DETAILS";
+export const WXDOOR = "WXDOOR";
+export const WXINTERIOR = "WXINTERIOR";
+export const WXCASHIER = "WXCASHIER";
+export const WXLICENESE = "WXLICENESE";
+export const WXDATAIMG = "WXDATAIMG";
+export const ZFBDOOR = "ZFBDOOR";
+export const ZFBINTERIOR = "ZFBINTERIOR";
+export const ZFBCASHIER = "ZFBCASHIER";
+export const ZFBLICENESE = "ZFBLICENESE";
+export const ZFBDATAIMG = "ZFBDATAIMG";

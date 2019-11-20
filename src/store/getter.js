@@ -1,0 +1,13 @@
+export const userName = state => state.userName;
+export const token = state => state.token;
+export const goodsDetails = state => state.goodsDetails;
+export const wxdoor = state => state.wxdoor;
+export const wxinterior = state => state.wxinterior;
+export const wxcashier = state => state.wxcashier;
+export const wxlicenese = state => state.wxlicenese;
+export const wxdataimg = state => state.wxdataimg;
+export const zfbdoor = state => state.zfbdoor;
+export const zfbinterior = state => state.zfbinterior;
+export const zfbcashier = state => state.zfbcashier;
+export const zfblicenese = state => state.zfblicenese;
+export const zfbdataim = state => state.zfbdataim;
