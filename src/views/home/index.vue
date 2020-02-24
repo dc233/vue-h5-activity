@@ -63,7 +63,6 @@
             params: { url: this.licenseimg, user: this.$route.query.user_info }
           }"
           :value="wxlicenese == '' ? showuplod : '已上传'"
-          v-if="licenseimg"
         />
         <van-cell
           title="补充资料"
@@ -152,17 +151,19 @@ export default {
         this.doorimg = data.data.info.actStoreSalesmanPic;
         this.interiorimg = data.data.info.actInsideScenePic;
         this.cashierimg = data.data.info.actCounterSalesmanPic;
+        this.licenseimg = data.data.info.actLicense;
         this.dataimg = data.data.info.actMerchantShowPic;
         this.actid = data.data.info.id;
-        this.id = data.data.info.merchant_id;
+        this.id = this.$route.query.id;
         this.setwxdoor(this.doorimg.replace(/http:\/\/[^\/]*/, ""));
         this.setwxinterior(this.interiorimg.replace(/http:\/\/[^\/]*/, ""));
         this.stewxcashier(this.cashierimg.replace(/http:\/\/[^\/]*/, ""));
         this.setwxdataimg(this.dataimg.replace(/http:\/\/[^\/]*/, ""));
+        this.setwxlicenese(this.licenseimg.replace(/http:\/\/[^\/]*/, ""))
         }
       } else if (data.code === 1) {
         // 此商户可以参加蓝海绿洲
-        this.id = this.$route.query.id;
+        this.id =  this.$route.query.id;
         this.name = data.data.incoming_parts_content.actNm;
         this.linescardname = data.data.incoming_parts_content.cprRegNmCn;
         this.aderess = data.data.incoming_parts_content.cprRegAddr;
@@ -186,13 +187,14 @@ export default {
       const { data } = await this.$Npost("activity/add_activity", {
         id: this.actid,
         user_info: this.$route.query.user_info,
-        merchant_id: this.id,
+        merchant_id: this.$route.query.id,
         activityType: "02",
         email: "chenjiaqiang@fumiao6.com",
         actStoreSalesmanPic: this.wxdoor,
         actInsideScenePic: this.wxinterior,
         actCounterSalesmanPic: this.wxcashier,
-        actMerchantShowPic: this.wxdataimg
+        actMerchantShowPic: this.wxdataimg,
+        actLicense: this.wxlicenese
       });
       if (data.code === 1) {
         this.show = false
@@ -206,7 +208,8 @@ export default {
       stewxcashier: "WXCASHIER",
       setwxdataimg: "WXDATAIMG",
       setwxdoor: "WXDOOR",
-      setwxinterior: "WXINTERIOR"
+      setwxinterior: "WXINTERIOR",
+      setwxlicenese: "WXLICENESE"
     })
   }
 };

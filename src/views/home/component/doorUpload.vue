@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       fileList: [],
-      images: [require("../../../assets/img/door.jpg")]
+      images: [require("../../../assets/img/door.jpg")],
+      res: null
     };
   },
   computed: {},

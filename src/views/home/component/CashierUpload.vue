@@ -39,8 +39,8 @@
     </div>
     <van-row type="flex" justify="center" class="top">
       <van-button round type="primary" class="btn" @click="onClickLeft"
-        >返回上一步</van-button
-      >
+        >返回上一步
+      </van-button>
     </van-row>
   </div>
 </template>

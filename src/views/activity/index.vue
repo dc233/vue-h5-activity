@@ -60,7 +60,6 @@
             params: { url: this.licenseimg, user: this.$route.query.user_info }
           }"
           :value="zfblicenese == '' ? showuplod : '已上传'"
-          v-if="licenseimg"
         />
         <van-cell
           title="补充资料"
@@ -151,13 +150,15 @@ export default {
         this.doorimg = data.data.info.actStoreSalesmanPic;
         this.interiorimg = data.data.info.actInsideScenePic;
         this.cashierimg = data.data.info.actCounterSalesmanPic;
+        this.licenseimg = data.data.info.actLicense;
         this.dataimg = data.data.info.actMerchantShowPic;
         this.actid = data.data.info.id;
-        this.id = data.data.info.merchant_id;
+        this.id = this.$route.query.id;
         this.setzfbdoor(this.doorimg.replace(/http:\/\/[^\/]*/, ""));
         this.setzfbinterior(this.interiorimg.replace(/http:\/\/[^\/]*/, ""));
         this.setzfbcashier(this.cashierimg.replace(/http:\/\/[^\/]*/, ""));
         this.setzfbdataim(this.dataimg.replace(/http:\/\/[^\/]*/, ""));
+        this.setzfblicenese(this.licenseimg.replace(/http:\/\/[^\/]*/, ""))
         }
       } else if (data.code === 1) {
         this.id = this.$route.query.id;
@@ -182,14 +183,15 @@ export default {
       this.show = true
       const { data } = await this.$Npost("activity/add_activity", {
         id: this.actid,
-        merchant_id: this.id,
+        merchant_id: this.$route.query.id,
         user_info: this.$route.query.user_info,
         activityType: "01",
         email: "chenjiaqiang@fumiao6.com",
         actStoreSalesmanPic: this.zfbdoor,
         actInsideScenePic: this.zfbinterior,
         actCounterSalesmanPic: this.zfbcashier,
-        actMerchantShowPic: this.zfbdataim
+        actMerchantShowPic: this.zfbdataim,
+        actLicense: this.zfblicenese
       });
       if (data.code === 1) {
         this.show = false
@@ -203,7 +205,8 @@ export default {
       setzfbcashier: "ZFBCASHIER",
       setzfbdataim: "ZFBDATAIMG",
       setzfbdoor: "ZFBDOOR",
-      setzfbinterior: "ZFBINTERIOR"
+      setzfbinterior: "ZFBINTERIOR",
+      setzfblicenese: "ZFBLICENESE"
     })
   }
 };

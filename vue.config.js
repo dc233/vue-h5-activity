@@ -30,7 +30,7 @@ module.exports = {
       config.plugins.push(
         new vConsolePlugin({
           filter: [], // 需要过滤的入口文件
-          enable: true // 发布代码前记得改回 false
+          enable: false // 发布代码前记得改回 false
         })
       );
     }
@@ -46,7 +46,7 @@ module.exports = {
     },
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: "http://coresystem.fumiao100.com",
+        target: "http://as.pc.fm.com",
         changeOrigin: true,
         secure: false
       }

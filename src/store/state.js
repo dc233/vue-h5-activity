@@ -8,11 +8,13 @@ const state = {
   wxcashier: "", //  收银台照片
   wxlicenese: "", // 营业执照照片
   wxdataimg: "", // 补充资料照片
+  wxyinyeimg: "", // 微信营业执照
   zfbdoor: "", //zfb门店照片
   zfbinterior: "", // zfb内景照片
   zfbcashier: "", //  zfb收银台照片
   zfblicenese: "", // zfb营业执照照片
-  zfbdataim: "" // zfb补充资料照片
+  zfbdataim: "", // zfb补充资料照片
+  zfbyinyeimg: "" // zfb营业执照
 };
 
 export default state;
